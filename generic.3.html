@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script src="echarts.min.js"></script>
+    <!-- Use echarts.js -->
 </head>
 
 <body class="is-preload">
@@ -46,10 +48,70 @@
                 <header class="major">
                     <span class="date">July 18, 2018</span>
                     <h1>英雄不死<br /> 风骨长存</h1>
+                    <p>感动中国十六年，有那么一些人，<br /> 却注定永远无法亲手捧起属于他们的荣誉，<br />但他们的精神将长足影响世间，<br />英雄永不死，风骨犹长存。 </p>
+                </header>
+
+                <body>
+                    <!-- Prepare the DOM element to be held by eCharts -->
+                    <div id="mychart" style="width: 800px;height:600px;margin-left: auto;margin-right: auto;"></div>
+
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('mychart'));
+                        option = {
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                                    type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+                                }
+                            },
+                            legend: {
+                                data: ['在世', '离世']
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: [{
+                                type: 'value'
+                            }],
+                            yAxis: [{
+                                type: 'category',
+                                axisTick: {
+                                    show: false
+                                },
+                                data: ['2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002']
+                            }],
+                            series: [{
+                                name: '在世',
+                                type: 'bar',
+                                stack: '总量',
+                                label: {
+                                    normal: {
+                                        show: true
+                                    }
+                                },
+                                data: [9, 9, 9, 10, 9, 7, 8, 11, 8, 10, 8, 9, 10, 9, 8, 9]
+                            }, {
+                                name: '离世',
+                                type: 'bar',
+                                stack: '总量',
+                                label: {
+                                    normal: {
+                                        show: true,
+                                    }
+                                },
+                                data: [-2, -2, -2, -1, -2, -3, -3, -2, -3, -1, -3, -2, -1, -1, -2, -2]
+                            }]
+                        };
+                        myChart.setOption(option);
+                    </script>
+                </body>
+
+                <header class="major">
                     <p>非常遗憾，部分获奖者在颁奖典礼举办之前便已逝世，<br /> 无法到达现场领取专属于自己的荣耀。<br />但国家和群众对于他们的肯定与铭怀透过奖杯真切的流现出来了。<br />英雄不死，风骨长存，他们会流芳天下，指引世人。 </p>
                 </header>
-                <div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-
             </section>
 
         </div>

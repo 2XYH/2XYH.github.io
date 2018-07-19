@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script src="echarts.min.js"></script>
+    <!-- Use echarts.js -->
 </head>
 
 <body class="is-preload">
@@ -46,9 +48,133 @@
                 <header class="major">
                     <span class="date">July 19, 2018</span>
                     <h1>布衣芒履<br /> 国士无双</h1>
+                    <p>感动中国十六年，他们也许平凡，也许卓越，也许辉煌，<br />但无论身份为何，他们都奉献了大无畏的感动，<br />即使布衣芒履，也依然是当代国士。<br /></p>
+                </header>
+
+                <body>
+                    <!-- Prepare the DOM element to be held by eCharts -->
+                    <div id="mychart" style="width: 800px;height:600px;margin-left: auto;margin-right: auto;"></div>
+
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('mychart'));
+                        option = {
+                            title: {
+                                text: '',
+                                subtext: '',
+                                x: 'center'
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                x: 'center',
+                                y: 'padding-bottom:500px',
+                                data: ['基层干部', '工农群体', '教师', '军警', '科学家', '普通群众', '企业家', '演员明星', '医生', '运动员']
+                            },
+
+                            calculable: true,
+                            series: [{
+                                name: '半径模式',
+                                type: 'pie',
+                                radius: [20, 110],
+                                center: ['25%', '50%'],
+                                roseType: 'radius',
+                                label: {
+                                    normal: {
+                                        show: false
+                                    },
+                                    emphasis: {
+                                        show: true
+                                    }
+                                },
+                                lableLine: {
+                                    normal: {
+                                        show: false
+                                    },
+                                    emphasis: {
+                                        show: true
+                                    }
+                                },
+                                data: [{
+                                    value: 18,
+                                    name: '基层干部'
+                                }, {
+                                    value: 21,
+                                    name: '工农群体'
+                                }, {
+                                    value: 16,
+                                    name: '教师'
+                                }, {
+                                    value: 23,
+                                    name: '军警'
+                                }, {
+                                    value: 23,
+                                    name: '科学家'
+                                }, {
+                                    value: 40,
+                                    name: '普通群众'
+                                }, {
+                                    value: 3,
+                                    name: '企业家'
+                                }, {
+                                    value: 6,
+                                    name: '演员明星'
+                                }, {
+                                    value: 12,
+                                    name: '医生'
+                                }, {
+                                    value: 8,
+                                    name: '运动员'
+                                }]
+                            }, {
+                                name: '面积模式',
+                                type: 'pie',
+                                radius: [30, 110],
+                                center: ['75%', '50%'],
+                                roseType: 'area',
+                                data: [{
+                                    value: 18,
+                                    name: '基层干部'
+                                }, {
+                                    value: 21,
+                                    name: '工农群体'
+                                }, {
+                                    value: 16,
+                                    name: '教师'
+                                }, {
+                                    value: 23,
+                                    name: '军警'
+                                }, {
+                                    value: 23,
+                                    name: '科学家'
+                                }, {
+                                    value: 40,
+                                    name: '普通群众'
+                                }, {
+                                    value: 3,
+                                    name: '企业家'
+                                }, {
+                                    value: 6,
+                                    name: '演员明星'
+                                }, {
+                                    value: 12,
+                                    name: '医生'
+                                }, {
+                                    value: 8,
+                                    name: '运动员'
+
+                                }]
+                            }]
+                        };
+
+                        myChart.setOption(option);
+                    </script>
+                </body>
+
+                <header class="major">
                     <p>获奖人群中普通群众占比最多，他们默默无闻，但是这种平凡的伟大是最真切动人的表现。<br />其后依次是大义凛然的军警，上下求索的科学家，分甘共苦的工农群体，干部，教师，医生……<br />少数运动员，企业家，演员明星也有上榜。<br /></p>
                 </header>
-                <div class="image main"><img src="images/pic01.jpg" alt="" /></div>
 
             </section>
 
